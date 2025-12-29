@@ -11,7 +11,7 @@ theme = "cleanwhite"
     googleAnalytics = ""  # Leave empty or add your GA ID
     # Social links
     github = "grazielewest"
-    email = "grazielewest@grazielewest.com"
+    email = "grazielewest@email.com"
     
     # Features
     highlightjs = true
