@@ -1,0 +1,54 @@
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "My Awesome Blog"
+theme = "cleanwhite"
+
+# Site parameters
+[params]
+    subtitle = "A Clean White Hugo Theme"
+    avatar = "/img/avatar.png"  # Optional: add avatar.png to static/img/
+    disqus = ""  # Leave empty or add your Disqus shortname
+    googleAnalytics = ""  # Leave empty or add your GA ID
+    # Social links
+    github = "yourusername"
+    twitter = "yourusername"
+    email = "your@email.com"
+    
+    # Features
+    highlightjs = true
+    mathjax = false
+    
+    # Navigation
+    [[params.nav]]
+        name = "Home"
+        url = "/"
+    
+    [[params.nav]]
+        name = "Archive"
+        url = "/archive/"
+    
+    [[params.nav]]
+        name = "About"
+        url = "/about/"
+
+# Menu (for sidebar - optional)
+[menu]
+    [[menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+    
+    [[menu.main]]
+        name = "Archive"
+        url = "/archive/"
+        weight = 2
+    
+    [[menu.main]]
+        name = "About"
+        url = "/about/"
+        weight = 3
+
+# Enable features
+enableEmoji = true
+buildDrafts = true
+buildFuture = true
