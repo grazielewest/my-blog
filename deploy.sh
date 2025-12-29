@@ -1,27 +1,26 @@
 #!/bin/bash
 
-echo "🚀 Building site with Hugo..."
+echo "🚀 Building site..."
 hugo
 
 echo "📤 Deploying to GitHub Pages..."
-cd public
 
-# Initialize if needed
-if [ ! -d ".git" ]; then
-    git init
-    git remote add origin https://github.com/grazielewest/grazielewest.github.io.git
-fi
+# Create a fresh clone of the pages repo
+cd /tmp
+rm -rf deploy-temp
+git clone https://github.com/grazielewest/grazielewest.github.io.git deploy-temp
+cd deploy-temp
 
-# Add all files
+# Remove everything except .git
+find . -maxdepth 1 ! -name '.git' ! -name '.' -exec rm -rf {} +
+
+# Copy the built site
+cp -r ~/Documents/my-blog/public/* .
+
+# Deploy
 git add .
-
-# Commit
 git commit -m "Deployed: $(date)"
-
-# Force push (overwrites remote)
 git push origin main --force
 
-cd ..
-echo "✅ Deployment complete!"
-echo "🌐 Your site: https://grazielewest.github.io"
-echo "⏳ It may take 1-2 minutes to update..."
+cd ~/Documents/my-blog
+echo "✅ Done! Visit: https://grazielewest.github.io"
